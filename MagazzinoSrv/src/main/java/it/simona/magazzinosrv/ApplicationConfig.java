@@ -5,6 +5,11 @@
  */
 package it.simona.magazzinosrv;
 
+import it.simona.magazzino.Borsa;
+import it.simona.magazzinoservices.Scarpa;
+import it.simona.magazzinoservices.Vestito;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Set;
 import javax.ws.rs.core.Application;
 
@@ -14,7 +19,11 @@ import javax.ws.rs.core.Application;
  */
 @javax.ws.rs.ApplicationPath("webresources")
 public class ApplicationConfig extends Application {
-
+    
+    
+private int idBorsa;
+private int idScarpa;
+private int idVestito;
     @Override
     public Set<Class<?>> getClasses() {
         Set<Class<?>> resources = new java.util.HashSet<>();
@@ -29,9 +38,11 @@ public class ApplicationConfig extends Application {
      * If required, comment out calling this method in getClasses().
      */
     private void addRestResourceClasses(Set<Class<?>> resources) 
-    {
-        //Aggiungere qui
-        
+    { 
+       //aggiungere tre array
+    
+           
+         
         resources.add(it.simona.magazzinosrv.BorsaResource.class);
         resources.add(it.simona.magazzinosrv.GenericResource.class);
         resources.add(it.simona.magazzinosrv.ScarpaResouce.class);
