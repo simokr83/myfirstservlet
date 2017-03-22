@@ -40,10 +40,8 @@ private int idVestito;
     private void addRestResourceClasses(Set<Class<?>> resources) 
     { 
        //aggiungere tre array
+       
     
-    
-        resources.add(it.simona.magazzinosrv.BorsaResource.(new Object[id]));
-         
         resources.add(it.simona.magazzinosrv.BorsaResource.class);
         resources.add(it.simona.magazzinosrv.GenericResource.class);
         resources.add(it.simona.magazzinosrv.ScarpaResouce.class);
