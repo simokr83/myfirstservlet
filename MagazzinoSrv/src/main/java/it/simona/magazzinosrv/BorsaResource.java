@@ -31,7 +31,7 @@ public class BorsaResource {
     private Object obj[];
     public BorsaResource(){
     }
-    
+      
     public BorsaResource(Object obj []){
         this.obj[]=obj[]; 
         }
