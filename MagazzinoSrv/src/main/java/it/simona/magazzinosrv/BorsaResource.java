@@ -27,15 +27,15 @@ import javax.ws.rs.core.UriInfo;
 public class BorsaResource {
     //quello che arriva trasformalo in un oggetto UriInfo di nome context e rappresenta il contesto della chiamata fatta dal client
      @Context
-     private UriInfo context;
-     private int id;
+    private UriInfo context;
+    private Object obj[];
     public BorsaResource(){
     }
     
-    public BorsaResource(Object [] obj){
-        obj=new Borsa[id];
-     
+    public BorsaResource(Object obj []){
+        this.obj[]=obj[]; 
         }
+    
     @GET
     //prende l id che arriva sulla risorsa dalla chiamata http 
     @Path("{id}")
@@ -43,14 +43,14 @@ public class BorsaResource {
     //prendo l id dall url e lo trasformo nel paramentro di tipo stringa
     public String getBorsa(@PathParam("id") String id){
         String result = "{\"id\":123,\"colore\":\"giallo\"}";
-    // for(int i=0; i < obj.length; i++)
-    //   if(obj.item(i).getId(“id”))
-   //cella = lista_td.item(i);
-            
+     
+     BorsaResource test = new BorsaResource(obj[]);
+        for (int k=0;k<= id;k++)
+       
         //andare a prendere dall'array di borse la borsa con id ID
-        System.out.println("GET/borsa/"+id);
+       // System.out.println("GET/borsa/"+id);
         
-      
+      System.out.println("GET/borsa/"+test.getBorsa(id));
         return result;
     }
     
