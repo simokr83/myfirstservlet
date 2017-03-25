@@ -5,10 +5,13 @@
  */
 package it.simona.magazzinoservices;
 
+import javax.ws.rs.Path;
+
 /**
  *
  * @author s.megna
  */
+
 public class Vestito {
 	private String colore;
 	private String anno;

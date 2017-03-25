@@ -10,6 +10,7 @@ import it.simona.magazzinoservices.Scarpa;
 import it.simona.magazzinoservices.Vestito;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 import javax.ws.rs.core.Application;
 
@@ -39,9 +40,6 @@ private int idVestito;
      */
     private void addRestResourceClasses(Set<Class<?>> resources) 
     { 
-       //aggiungere tre array
-       
-    
         resources.add(it.simona.magazzinosrv.BorsaResource.class);
         resources.add(it.simona.magazzinosrv.GenericResource.class);
         resources.add(it.simona.magazzinosrv.ScarpaResouce.class);
