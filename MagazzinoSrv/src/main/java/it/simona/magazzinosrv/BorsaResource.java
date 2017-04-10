@@ -32,8 +32,9 @@ public class BorsaResource {
     //quello che arriva trasformalo in un oggetto UriInfo di nome context e rappresenta il contesto della chiamata fatta dal client
     @Context
     private UriInfo context;
-    
+
     public BorsaResource(){
+  
     }
     
     @GET
@@ -41,30 +42,24 @@ public class BorsaResource {
     @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
     //prendo l id dall url e lo trasformo nel paramentro di tipo stringa
-    public String getBorsa(@PathParam("id") String id){
-        String result = "{\"id\":123,\"colore\":\"giallo\"}";
-     
-     //BorsaResource test = new BorsaResource(obj[]);
-       // for (int k=0;k<= id;k++)
-       
+    public String getBorsa(@PathParam("id") Integer id) throws IOException{
+        Borsa index = ApplicationConfig.listaBorse.get(id);
+        ObjectMapper m = new ObjectMapper();
+        String jsonBorsa = m.writeValueAsString(index);
         //andare a prendere dall'array di borse la borsa con id ID
-       System.out.println("GET/borsa/"+id);
-        
-   //   System.out.println("GET/borsa/"+test.getBorsa(id));
-        return result;
+        System.out.println("GET/borsa/"+id);
+        return jsonBorsa;
     }
     
     @PUT
-    @Path("{id}")
     @Consumes(MediaType.APPLICATION_JSON)
-     public void putBorsa(@PathParam("id") String id,String content) throws IOException{ 
-         //andare a inserire nell'array di borse la borsa con id ID
-   // Borsa b=new Borsa(10);
-   // borse.add(Integer.valueOf(id),b);    
-         //ObjectMapper mi serve a fare la serialuzation e deserialization di un oggetto borsa a json
-       ObjectMapper mapper=new ObjectMapper();
+     public void putBorsa(String content) throws IOException{ 
+   
+        //ObjectMapper mi serve a fare la serialuzation e deserialization di un oggetto borsa a json
+        ObjectMapper mapper=new ObjectMapper();
         Borsa b=mapper.readValue(content,Borsa.class);
-    System.out.println("PUT/borsa/"+id);
+        ApplicationConfig.listaBorse.add(b);
+        System.out.println("PUT/borsa/"+ApplicationConfig.listaBorse.size());
     
 //    System.out.pr.toString());
     
