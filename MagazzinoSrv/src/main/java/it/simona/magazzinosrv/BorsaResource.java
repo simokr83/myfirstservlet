@@ -6,6 +6,7 @@
 package it.simona.magazzinosrv;
 
 import it.simona.magazzino.Borsa;
+import static it.simona.magazzinosrv.ApplicationConfig.listaBorse;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -42,15 +43,17 @@ public class BorsaResource {
     @Path("{id}")
     @Produces(MediaType.APPLICATION_JSON)
     //prendo l id dall url e lo trasformo nel paramentro di tipo stringa
-    public String getBorsa(@PathParam("id") Integer id) throws IOException{
+    public String getBorsa(@PathParam("id") Integer id) throws IOException{ 
+       String jsonBorsa = null;
+        for(Borsa i : listaBorse){
         Borsa index = ApplicationConfig.listaBorse.get(id);
         ObjectMapper m = new ObjectMapper();
-        String jsonBorsa = m.writeValueAsString(index);
+        m.writeValueAsString(index);
         //andare a prendere dall'array di borse la borsa con id ID
         System.out.println("GET/borsa/"+id);
-        return jsonBorsa;
+       
+    } return jsonBorsa;
     }
-    
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
      public void putBorsa(String content) throws IOException{ 
