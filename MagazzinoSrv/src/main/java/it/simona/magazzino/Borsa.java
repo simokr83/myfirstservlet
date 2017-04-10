@@ -14,8 +14,16 @@ public class Borsa {
 	private String anno;
 	private int id;
 	
+        public Borsa(){
+            
+        }
 	public Borsa(int id){
 		this.id=id;
+	}
+        public Borsa(int id,String colore,String anno){
+		this.id=id;
+                this.colore=colore;
+                this.anno=anno;
 	}
 	public int getId(){
 		return id;
