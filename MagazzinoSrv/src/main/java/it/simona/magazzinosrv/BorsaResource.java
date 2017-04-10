@@ -13,6 +13,7 @@ import java.util.List;
 import javax.json.Json;
 import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
@@ -68,4 +69,19 @@ public class BorsaResource {
     
    // System.out.println(b.getId());
      }
+    @DELETE
+    //prende l id che arriva sulla risorsa dalla chiamata http 
+    @Path("{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    //prendo l id dall url e lo trasformo nel paramentro di tipo stringa
+    public void deleteBorsa(@PathParam("id") Integer id) throws IOException{ 
+           String jsonBorsa = null;
+        for(Borsa i : listaBorse){
+        Borsa b = ApplicationConfig.listaBorse.get(id);
+        int index= ApplicationConfig.listaBorse.indexOf(b);
+        ObjectMapper m = new ObjectMapper();
+        ApplicationConfig.listaBorse.remove(index);
+    System.out.println("DELETE/borsa/"+id);
+      } 
+}
 }
