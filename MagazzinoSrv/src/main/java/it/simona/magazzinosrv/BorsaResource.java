@@ -8,6 +8,7 @@ package it.simona.magazzinosrv;
 import com.amazonaws.AmazonServiceException;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sun.istack.internal.logging.Logger;
 import it.simona.magazzino.Borsa;
 import it.simona.magazzino.BorsaMapper;
@@ -30,7 +31,7 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
-import org.codehaus.jackson.map.ObjectMapper;
+
 
 /**
  *
