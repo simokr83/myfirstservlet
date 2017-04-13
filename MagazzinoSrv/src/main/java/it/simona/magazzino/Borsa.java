@@ -25,6 +25,10 @@ public class Borsa {
                 this.colore=colore;
                 this.anno=anno;
 	}
+        public Borsa(String colore,String anno){
+                this.colore=colore;
+                this.anno=anno;
+	}
 	public int getId(){
 		return id;
 	}
