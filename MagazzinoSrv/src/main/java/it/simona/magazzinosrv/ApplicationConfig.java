@@ -40,6 +40,7 @@ public class ApplicationConfig extends Application {
     { 
         resources.add(it.simona.magazzinosrv.BorsaResource.class);
         resources.add(it.simona.magazzinosrv.GenericResource.class);
+        resources.add(it.simona.magazzinosrv.Ping.class);
         resources.add(it.simona.magazzinosrv.ScarpaResouce.class);
         resources.add(it.simona.magazzinosrv.VestitoResource.class);
     }
