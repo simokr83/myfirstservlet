@@ -6,13 +6,12 @@
 package it.simona.magazzinosrv;
 
 import com.amazonaws.AmazonServiceException;
+import com.amazonaws.regions.Regions;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.sun.istack.internal.logging.Logger;
 import it.simona.magazzino.Borsa;
 import it.simona.magazzino.BorsaMapper;
-import static it.simona.magazzinosrv.ApplicationConfig.listaBorse;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -46,11 +45,12 @@ public class BorsaResource {
     @Context
     private UriInfo context;
 
-    public BorsaResource(){
-  
-    }
-    public BorsaResource(AmazonDynamoDBClient client){
-     this.client=client;
+    public BorsaResource()
+    {    }
+    
+    public BorsaResource(AmazonDynamoDBClient client)
+    {
+       this.client = client;
     }
     
     @GET

@@ -9,7 +9,6 @@
  * @author s.megna
  */
 
-
 package it.simona.microservice;
         
 import com.amazonaws.regions.Regions;
